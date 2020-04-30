@@ -1,0 +1,72 @@
+
+@import "~@nativescript/theme/css/core.css";
+@import "~@nativescript/theme/css/default.css";
+
+Button.-primary {
+    font-size: 18;
+}
+
+
+.authentication_page {
+    background-color: navy;
+    color: white;
+    padding: 10%;
+}
+
+.authentication_page_main_container {
+    background-color: navy;
+    color: white;
+    padding: 10%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+}
+
+.button-footer {
+}
+
+.authentication_page_form_container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sign_up_page_main_container {
+    background-color: navy;
+    color: white;
+    padding: 10%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+TextField {
+    background-color: lightgray;
+    border-color: lightgray;
+    border-width: 1;
+    padding: 30px;
+    color: black;
+    border-radius: 10%;
+    width: 90%;
+}
+
+.is-invalid {
+    border-color: red;
+    border-width: 1;
+}
+
+.error_text {
+    color: red;
+}
+
+ActionBar {
+    background-color: navy;
+    color: white;
+    flat: true;
+}

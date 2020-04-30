@@ -1,0 +1,57 @@
+
+<ActionBar title="My App">
+</ActionBar>
+
+<ScrollView (tap)="dismissKeyboard($event)">
+
+    <form #f="ngForm" novalidate>
+
+        <FlexboxLayout class="authentication_page_main_container">
+
+            <FlexboxLayout class="authentication_page_form_container">
+
+                <Image src="~/images/irnHCMF.jpg" height="200" width="200" *ngIf="!isKeyboardShowing"></Image>
+
+                <StackLayout class="input-field">
+                    <TextField
+                        required
+                        hint="Client Code:"
+                        [class.is-invalid]="clientCodeField.invalid && clientCodeField.dirty"
+                        [(ngModel)]="clientcode"
+                        name="clientcode"
+                        autocorrect="false"
+                        autocapitalizationType="none"
+                        #clientCodeField="ngModel">
+                    </TextField>
+                    <Label
+                        class="error_text"
+                        text="This field is required."
+                    [visibility]="clientCodeField.invalid && clientCodeField.dirty ? 'visible' : 'collapsed'">
+                    </Label>
+                </StackLayout>
+
+            </FlexboxLayout>
+
+            <FlexboxLayout class="button-footer" flexDirection="column" justifyContent="space-between" alignItems="center">
+
+                <Button
+                    text="Submit"
+                    (tap)="onLogin()"
+                    class="btn-red-rounded"
+                    isEnabled="{{ f.valid === true }}">
+                </Button>
+
+                <Label>
+                    <FormattedString>
+                        <Span text="Don't have an account?"></Span>
+                        <Span class="bold" text=" Tap here"></Span>
+                    </FormattedString>
+                </Label>
+
+            </FlexboxLayout>
+
+        </FlexboxLayout>
+
+    </form>
+
+</ScrollView>
