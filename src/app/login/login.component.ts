@@ -3,6 +3,7 @@ import { EventData, Page, View } from "tns-core-modules/ui/page/page";
 import { screen } from 'tns-core-modules/platform/platform';
 import * as utils from 'tns-core-modules/utils/utils';
 import { IoskeyboardobserverService } from "./ioskeyboardobserver.service";
+import { AndroidKeyboardListenerService } from "./AndroidKeyboardListener.service";
 
 @Component({
     selector: "ns-items",
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     constructor(
         private page: Page,
         private ngZone: NgZone,
-        private keyboardObserver: IoskeyboardobserverService
+        private keyboardObserver: IoskeyboardobserverService,
+        private androidKeyboard: AndroidKeyboardListenerService
     ) {
 
         this.page.on(Page.layoutChangedEvent, (args: EventData) => this.onLayoutChanged(args));
@@ -36,6 +38,12 @@ export class LoginComponent implements OnInit {
                 console.log(result);
             });
 
+        } else {
+
+            this.androidKeyboard.watchKeyboard$().subscribe((result) => {
+                console.log(' keyboard ', result);
+            });
+            
         }
 
     }
